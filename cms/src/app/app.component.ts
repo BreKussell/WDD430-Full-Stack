@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header.component';
+import { ContactsComponent } from './contacts/contacts.component';
+
+
 
 @Component({
-  selector: 'cms-root',
-  standalone: true,
-  imports: [RouterOutlet],
+  selector: 'router-outlet',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true,  // Make the component standalone
+  imports: [HeaderComponent, ContactsComponent] 
 })
 export class AppComponent {
-  title = 'cms';
+  title(_title: any) {
+    throw new Error('Method not implemented.');
+  }
 }
