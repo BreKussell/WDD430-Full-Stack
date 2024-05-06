@@ -1,16 +1,28 @@
-<!-- contact-list.component.html -->
 <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1>Contacts</h1>
-      <a href="#" class="btn btn-success">New Contact</a>
-    </div>
-    <div class="panel-body">
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let contact of contacts">
-          <img [src]="contact.imageUrl" alt="{{ contact.name }}" style="width: 50px; height: auto;">
-          {{ contact.name }}
-        </li>
-      </ul>
+  <div class="panel-heading row">
+    <h3 class="panel-title col-sm-8">Contacts</h3>
+    <div class="col-sm-4 text-right">
+      <a class="btn btn-success" href="#">New Contact</a>
     </div>
   </div>
-  
+  <div class="panel-body">
+    <a
+      href="#"
+      class="list-group-item clearfix"
+      *ngFor="let contact of contacts"
+    >
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">{{ contact.name }}</h4>
+        <!-- <p class="list-group-item-text">{{ contact.phone }}</p> -->
+      </div>
+      <span class="pull-right">
+        <img
+          [src]="contact.imagePath"
+          alt="{{ contact.name }}"
+          class="img-responsive"
+          style="max-height: 50px"
+        />
+      </span>
+    </a>
+  </div>
+</div>
