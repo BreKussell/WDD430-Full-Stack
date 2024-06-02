@@ -1,34 +1,20 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-xs-8">
-                <h3>Contacts</h3>
-            </div>
-            <div class="col-xs-4">
-                <a href="#" type="button" class="btn btn-success">New Contact</a>
-            </div>
-        </div>
-        
-        
+<link rel="stylesheet" href="./contact-list.component.css" />
+
+<div class="container col-md-12" style="margin-left: 10px">
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix">
+      <h1 class="panel-title pull-left custom-panel-title">Contacts</h1>
+      <div class="pull-right">
+        <a class="btn btn-default btn-success" [routerLink]="['/contacts', 'new']">New Contact</a>
+      </div>
     </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-xs-12">
-                <!-- <a href="#" class="list-group-item clearfix" 
-                *ngFor="let contact of contacts">
-                    <div class="pull-left">
-                        <h4 class="list-group-item-heading">{{contact.name}}</h4>
-                    </div>
-                    <span class="pull-right">
-                        <img src="{{contact.imageUrl}}" alt="{{contact.name}}" class="img-responsive" style="max-height: 50px;">
-                    </span>
-                </a> -->
-                <cms-contact-item *ngFor="let contact of contacts"
-                    [contact]="contact"
-                    (click)="onSelected(contact)"
-                ></cms-contact-item>
-                
-            </div>
-        </div>
+
+    <div class="row">
+    <div class="col-md-12">
+      <div *ngFor="let contact of contacts">
+      <cms-contact-item [contact]="contact"></cms-contact-item>
+      </div>
     </div>
+    </div>
+  </div>
 </div>

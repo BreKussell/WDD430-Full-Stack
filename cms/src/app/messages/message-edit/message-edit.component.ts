@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild} from '@angular/core';
 import { Message } from '../message.model';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'cms-message-edit',
@@ -7,12 +8,38 @@ import { Message } from '../message.model';
   styleUrl: './message-edit.component.css'
 })
 export class MessageEditComponent {
-  @ViewChild('subjectInput') subjectInputRef: ElementRef;
-  @ViewChild('msgInput') msgInputRef: ElementRef;
-  @Output() addMessageEvent = new EventEmitter<Message>()
+  currentSender: string = '18'
 
-  addMessage(){
-    let message = new Message('000', this.subjectInputRef.nativeElement.value, this.msgInputRef.nativeElement.value, "Alex")
-    this.addMessageEvent.emit(message);
+  @ViewChild('subject') subjectInput!: ElementRef;
+  @ViewChild('msgText') msgTextInput!: ElementRef
+
+
+  constructor(private messageService:MessageService){}
+
+  onSendMessage(){
+    const subjectValue = this.subjectInput.nativeElement.value
+    const msgValue = this.msgTextInput.nativeElement.value
+
+    const newMessage = new Message(
+      '5',
+      subjectValue,
+      msgValue,
+      this.currentSender
+  )
+
+
+  this.messageService.addMessage(newMessage)
+
+  this.onClear()
+  
   }
+
+  onClear(){
+    this.subjectInput.nativeElement.value = '';
+    this.msgTextInput.nativeElement.value = '';
+  }
+
+
+
+
 }
