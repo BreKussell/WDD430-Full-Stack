@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Contact } from '../contact-model';
 import { ContactService } from '../contact.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop'
 
 @Component({
   selector: 'cms-contact-edit',
