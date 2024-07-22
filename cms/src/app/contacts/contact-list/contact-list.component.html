@@ -1,20 +1,16 @@
-<link rel="stylesheet" href="./contact-list.component.css" />
-
-<div class="container col-md-12" style="margin-left: 10px">
-  <div class="panel panel-default">
-    <div class="panel-heading clearfix">
-      <h1 class="panel-title pull-left custom-panel-title">Contacts</h1>
-      <div class="pull-right">
-        <a class="btn btn-default btn-success" [routerLink]="['/contacts', 'new']">New Contact</a>
-      </div>
+<div class="panel panel-default">
+  <div class="panel-heading row">
+    <h3 class="panel-title col-sm-8">Contacts</h3>
+    <div class="col-sm-4 text-right">
+      <a class="btn btn-success" [routerLink]="['new']">New Contact</a>
     </div>
-
-    <div class="row">
-      <div class="col-md-12" cdkDropList [cdkDropListData]="contacts" [cdkDropListConnectedTo]="['groupList']">
-        <div *ngFor="let contact of contacts" cdkDrag [cdkDragData]="contact">
-          <cms-contact-item [contact]="contact"></cms-contact-item>
-        </div>
-      </div>
-    </div>
+  </div>
+  <div class="panel-body">
+    <cms-contact-item
+      *ngFor="let contact of contacts"
+      [contact]="contact"
+      [routerLink]="[contact.id]"
+    >
+    </cms-contact-item>
   </div>
 </div>
