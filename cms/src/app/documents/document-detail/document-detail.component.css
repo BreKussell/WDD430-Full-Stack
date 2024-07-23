@@ -1,15 +1,15 @@
 .title {
     font-weight: bold;
     padding-left: 1rem;
-    padding-right: 1rem;
+    padding-right: 1em;
   }
   
   .margin-left-right{
-    margin-left:1rem;
-    margin-right:1rem;
+    margin-left:1em;
+    margin-right:1em;
   }
   
   .pad-left-right{
-    margin-left:1rem;
-    margin-right:1rem;
+    margin-left:1em;
+    margin-right:1em;
   }
